@@ -2,11 +2,12 @@ package com.devsuprerior.dsvendas.domain.entities;
 
 import com.devsuprerior.dsvendas.domain.repositories.SaleRepository;
 import com.devsuprerior.dsvendas.infrastructura.database.Postgres.SaleRepositoryData;
+import org.springframework.stereotype.Component;
 
 import java.time.LocalDate;
 import java.util.List;
 import java.util.stream.Collectors;
-
+@Component
 public class Sale implements SaleRepository {
     private Long id;
     private Integer visited;

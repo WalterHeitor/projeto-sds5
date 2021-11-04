@@ -1,13 +1,13 @@
 package com.devsuprerior.dsvendas.domain.entities;
 
 import com.devsuprerior.dsvendas.domain.repositories.SellerRepository;
-import com.devsuprerior.dsvendas.infrastructura.database.Postgres.SaleRepositoryData;
 import com.devsuprerior.dsvendas.infrastructura.database.Postgres.SellerRepositoryData;
+import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
-
+@Component
 public class Seller implements SellerRepository {
     private Long id;
     private String name;
