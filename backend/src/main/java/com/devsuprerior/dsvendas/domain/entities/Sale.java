@@ -1,8 +1,13 @@
 package com.devsuprerior.dsvendas.domain.entities;
 
-import java.time.LocalDate;
+import com.devsuprerior.dsvendas.domain.repositories.SaleRepository;
+import com.devsuprerior.dsvendas.infrastructura.database.Postgres.SaleRepositoryData;
 
-public class Sale {
+import java.time.LocalDate;
+import java.util.List;
+import java.util.stream.Collectors;
+
+public class Sale implements SaleRepository {
     private Long id;
     private Integer visited;
     private Integer deals;
@@ -14,13 +19,12 @@ public class Sale {
     public Sale() {
     }
 
-    public Sale(Long id, Integer visited, Integer deals, Double amount, LocalDate date, Seller seller) {
+    public Sale(Long id, Integer visited, Integer deals, Double amount, LocalDate date) {
         this.id = id;
         this.visited = visited;
         this.deals = deals;
         this.amount = amount;
         this.date = date;
-        this.seller = seller;
     }
 
     public Long getId() {
@@ -69,5 +73,22 @@ public class Sale {
 
     public void setSeller(Seller seller) {
         this.seller = seller;
+    }
+
+    @Override
+    public List<Sale> findAll(SaleRepositoryData saleRepositoryData) {
+        List<Sale> sales = saleRepositoryData.findAll()
+                .stream().map(saleDataSql -> {
+                    Sale sale = new Sale(
+                            id = saleDataSql.getId(),
+                            visited = saleDataSql.getVisited(),
+                            deals = saleDataSql.getDeals(),
+                            amount = saleDataSql.getAmount(),
+                            date = saleDataSql.getDate()
+                            );
+                    return sale;
+                })
+                .collect(Collectors.toList());
+        return sales;
     }
 }

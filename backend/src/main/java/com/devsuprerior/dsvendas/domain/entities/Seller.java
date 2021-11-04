@@ -1,9 +1,14 @@
 package com.devsuprerior.dsvendas.domain.entities;
 
+import com.devsuprerior.dsvendas.domain.repositories.SellerRepository;
+import com.devsuprerior.dsvendas.infrastructura.database.Postgres.SaleRepositoryData;
+import com.devsuprerior.dsvendas.infrastructura.database.Postgres.SellerRepositoryData;
+
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
-public class Seller {
+public class Seller implements SellerRepository {
     private Long id;
     private String name;
 
@@ -43,5 +48,19 @@ public class Seller {
                 "id=" + id +
                 ", name='" + name + '\'' +
                 '}';
+    }
+
+    @Override
+    public List<Seller> findAll(SellerRepositoryData sellerRepositoryData) {
+        List<Seller> sellers = sellerRepositoryData.findAll()
+                .stream().map(saleDataSql -> {
+                    Seller seller = new Seller(
+                            saleDataSql.getId(),
+                            saleDataSql.getName()
+                    );
+                    return seller;
+                })
+                .collect(Collectors.toList());
+        return sellers;
     }
 }
