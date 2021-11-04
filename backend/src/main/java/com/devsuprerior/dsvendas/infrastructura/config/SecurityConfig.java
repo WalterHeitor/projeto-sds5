@@ -1,4 +1,4 @@
-package com.devsuprerior.dsvendas.infraestructura.config;
+package com.devsuprerior.dsvendas.infrastructura.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
