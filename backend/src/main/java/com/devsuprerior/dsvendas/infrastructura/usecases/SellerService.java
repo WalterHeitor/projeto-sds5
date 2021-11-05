@@ -1,9 +1,10 @@
 package com.devsuprerior.dsvendas.infrastructura.usecases;
 
-import com.devsuprerior.dsvendas.domain.dto.SellerResponse;
+
 import com.devsuprerior.dsvendas.domain.entities.Seller;
 import com.devsuprerior.dsvendas.domain.repositories.SellerRepository;
-import com.devsuprerior.dsvendas.infrastructura.database.Postgres.SellerRepositoryData;
+import com.devsuprerior.dsvendas.infrastructura.controllers.SellerResponse;
+import com.devsuprerior.dsvendas.infrastructura.database.postgres.repositoryjpa.SellerRepositoryData;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -24,7 +25,7 @@ public class SellerService {
     }
 
     public List<SellerResponse> findAll(){
-        List<Seller> sellers = sellerRepository.findAll(sellerRepositoryData);
+        List<Seller> sellers = sellerRepository.findAllSellers();
         return sellers.stream().map(seller -> new SellerResponse(seller))
                 .collect(Collectors.toList());
     }

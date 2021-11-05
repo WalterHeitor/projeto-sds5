@@ -1,5 +1,7 @@
-package com.devsuprerior.dsvendas.infrastructura.database.Postgres;
+package com.devsuprerior.dsvendas.infrastructura.database.postgres.datasql;
 
+
+import com.devsuprerior.dsvendas.infrastructura.database.postgres.datasql.SaleDataSql;
 
 import javax.persistence.*;
 import java.util.ArrayList;

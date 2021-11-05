@@ -1,6 +1,6 @@
-package com.devsuprerior.dsvendas.infrastructura.database.Postgres;
+package com.devsuprerior.dsvendas.infrastructura.database.postgres.datasql;
 
-import com.devsuprerior.dsvendas.domain.entities.Seller;
+import com.devsuprerior.dsvendas.domain.entities.Sale;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -29,6 +29,14 @@ public class SaleDataSql {
         this.amount = amount;
         this.date = date;
         this.seller = seller;
+    }
+    public SaleDataSql(Sale sale) {
+        this.id = sale.getId();
+        this.visited = getVisited();
+        this.deals = getDeals();
+        this.amount = getAmount();
+        this.date = getDate();
+        this.seller = getSeller();
     }
 
     public Long getId() {
