@@ -1,9 +1,9 @@
 package com.devsuprerior.dsvendas.domain.repositories;
 
 import com.devsuprerior.dsvendas.domain.entities.Sale;
-
-import java.util.List;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 
 public interface SaleRepository {
-    List<Sale> findAlSales();
+    Page<Sale> findAlSales(Pageable pageable);
 }

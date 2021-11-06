@@ -4,23 +4,17 @@ package com.devsuprerior.dsvendas.infrastructura.usecases;
 import com.devsuprerior.dsvendas.domain.entities.Seller;
 import com.devsuprerior.dsvendas.domain.repositories.SellerRepository;
 import com.devsuprerior.dsvendas.infrastructura.http.dto.SellerResponse;
-import com.devsuprerior.dsvendas.infrastructura.database.postgres.repositoryjpa.SellerRepositoryData;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
-public class SellerService {
+public class SellerServiceImpl {
 
-    @Autowired
-    private SellerRepositoryData sellerRepositoryData;
-    @Autowired
-    private SellerRepository sellerRepository;
+    private final SellerRepository sellerRepository;
 
-    public SellerService(SellerRepositoryData repositoryData, SellerRepository sellerRepository) {
-        this.sellerRepositoryData = repositoryData;
+    public SellerServiceImpl(SellerRepository sellerRepository) {
         this.sellerRepository = sellerRepository;
     }
 

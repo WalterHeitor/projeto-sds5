@@ -1,7 +1,7 @@
 package com.devsuprerior.dsvendas.infrastructura.http;
 
 import com.devsuprerior.dsvendas.infrastructura.http.dto.SellerResponse;
-import com.devsuprerior.dsvendas.infrastructura.usecases.SellerService;
+import com.devsuprerior.dsvendas.infrastructura.usecases.SellerServiceImpl;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,9 +12,9 @@ import java.util.List;
 @RestController
 @RequestMapping(value = "/sellers")
 public class SellerController {
-    private SellerService sellerService;
+    private SellerServiceImpl sellerService;
 
-    public SellerController(SellerService sellerService) {
+    public SellerController(SellerServiceImpl sellerService) {
         this.sellerService = sellerService;
     }
 
