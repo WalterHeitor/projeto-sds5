@@ -1,5 +1,6 @@
-package com.devsuprerior.dsvendas.infrastructura.controllers;
+package com.devsuprerior.dsvendas.infrastructura.http;
 
+import com.devsuprerior.dsvendas.infrastructura.http.dto.SellerResponse;
 import com.devsuprerior.dsvendas.infrastructura.usecases.SellerService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;

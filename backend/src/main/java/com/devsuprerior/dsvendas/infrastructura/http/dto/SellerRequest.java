@@ -1,4 +1,4 @@
-package com.devsuprerior.dsvendas.infrastructura.controllers;
+package com.devsuprerior.dsvendas.infrastructura.http.dto;
 
 import com.devsuprerior.dsvendas.domain.entities.Seller;
 

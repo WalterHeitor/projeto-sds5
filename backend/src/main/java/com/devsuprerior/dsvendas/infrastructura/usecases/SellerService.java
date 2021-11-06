@@ -3,7 +3,7 @@ package com.devsuprerior.dsvendas.infrastructura.usecases;
 
 import com.devsuprerior.dsvendas.domain.entities.Seller;
 import com.devsuprerior.dsvendas.domain.repositories.SellerRepository;
-import com.devsuprerior.dsvendas.infrastructura.controllers.SellerResponse;
+import com.devsuprerior.dsvendas.infrastructura.http.dto.SellerResponse;
 import com.devsuprerior.dsvendas.infrastructura.database.postgres.repositoryjpa.SellerRepositoryData;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
