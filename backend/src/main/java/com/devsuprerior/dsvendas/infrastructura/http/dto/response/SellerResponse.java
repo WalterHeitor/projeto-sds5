@@ -1,4 +1,4 @@
-package com.devsuprerior.dsvendas.infrastructura.http.dto;
+package com.devsuprerior.dsvendas.infrastructura.http.dto.response;
 
 import com.devsuprerior.dsvendas.domain.entities.Seller;
 

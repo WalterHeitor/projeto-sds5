@@ -4,11 +4,13 @@ import com.devsuprerior.dsvendas.domain.entities.Sale;
 import com.devsuprerior.dsvendas.domain.repositories.SaleRepository;
 import com.devsuprerior.dsvendas.infrastructura.database.postgres.datasql.SaleDataSql;
 import com.devsuprerior.dsvendas.infrastructura.database.postgres.repositoryjpa.SaleRepositoryData;
+import com.devsuprerior.dsvendas.infrastructura.http.dto.response.SaleSuccessResponse;
+import com.devsuprerior.dsvendas.infrastructura.http.dto.response.SaleSumResponse;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Component;
 
-import java.util.stream.Collectors;
+import java.util.List;
 
 @Component
 public class PostgresSaleRepository implements SaleRepository {
@@ -33,5 +35,15 @@ public class PostgresSaleRepository implements SaleRepository {
             );
             return sale;
         });
+    }
+
+    @Override
+    public List<SaleSumResponse> amountGroupedBySeller() {
+        return saleRepositoryData.amountGroupedBySeller();
+    }
+
+    @Override
+    public List<SaleSuccessResponse> successGroupedBySeller() {
+        return saleRepositoryData.successGroupedBySeller();
     }
 }

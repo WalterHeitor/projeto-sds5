@@ -3,7 +3,7 @@ package com.devsuprerior.dsvendas.infrastructura.usecases;
 
 import com.devsuprerior.dsvendas.domain.entities.Seller;
 import com.devsuprerior.dsvendas.domain.repositories.SellerRepository;
-import com.devsuprerior.dsvendas.infrastructura.http.dto.SellerResponse;
+import com.devsuprerior.dsvendas.infrastructura.http.dto.response.SellerResponse;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
