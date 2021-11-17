@@ -1,0 +1,29 @@
+version: '3'
+services:
+  dsvendas:
+    build:
+      dockerfile: ./Dockerfile
+      context: ./
+    image: 'walter/dsvendas'
+    ports:
+      - "8080:8080"
+      - "5005:5005"
+    depends_on:
+      - "postgres"
+    environment:
+      DATABASE_DRIVER: "org.postgresql.Driver"
+      DATABASE_URL: "jdbc:postgresql://postgres:5432/dsvendas"
+      DATABASE_USERNAME: "postgres"
+      DATABASE_PASSWORD: "maria"
+      DATABASE_DIALECT: "org.hibernate.dialect.PostgreSQLDialect"
+
+  postgres:
+    image: 'postgres:alpine'    #12.4-alpine :latest
+
+    environment:
+      POSTGRES_USER: "postgres"
+      POSTGRES_USER_NAME: "postgres"
+      POSTGRES_PASSWORD: "maria"
+      POSTGRES_DB: "dsvendas"
+    ports:
+      - "5432:5432"
